@@ -13,8 +13,5 @@ messy_data['Price Per Unit (£s)'] = messy_data['Price Per Unit (£s)'].str.repl
 # Cleaning Step 3: Coerce Price Per Unit to be a float 
 messy_data['Price Per Unit (£s)'] = messy_data['Price Per Unit (£s)'].astype(float)
 
-# Export data back to excel 
+# Export data back to excel (index = False ensures the pandas indicies are not exported to excel)
 messy_data.to_excel('clean_order_data.xlsx',index=False)
-
-
-#(index = False ensures the pandas indicies are not exported to excel)
