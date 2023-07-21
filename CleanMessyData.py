@@ -5,13 +5,16 @@ import pandas as pd
 messy_data = pd.read_excel('messy_order_data.xlsx', sheet_name='Sheet1')
 
 # Cleaning step 1: Remove ',' from the values and replace with ''
-messy_data['Price Per Unit'] = messy_data['Price Per Unit'].str.replace(',','')
+messy_data['Price Per Unit (£s)'] = messy_data['Price Per Unit (£s)'].str.replace(',','')
 
 # Cleaning Step 2: Remove '£---' from the values and replace with ''
-messy_data['Price Per Unit'] = messy_data['Price Per Unit'].str.replace('£---','')
+messy_data['Price Per Unit (£s)'] = messy_data['Price Per Unit (£s)'].str.replace('£---','')
 
 # Cleaning Step 3: Coerce Price Per Unit to be a float 
-messy_data['Price Per Unit'] = messy_data['Price Per Unit'].astype(float)
+messy_data['Price Per Unit (£s)'] = messy_data['Price Per Unit (£s)'].astype(float)
 
-# Export data back to excel (index = False ensures the pandas indicies are not exported to excel)
+# Export data back to excel 
 messy_data.to_excel('clean_order_data.xlsx',index=False)
+
+
+#(index = False ensures the pandas indicies are not exported to excel)
